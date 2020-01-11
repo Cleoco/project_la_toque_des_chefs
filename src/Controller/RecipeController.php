@@ -68,8 +68,10 @@ class RecipeController extends AbstractController
      */
     public function show(Recipe $recipe): Response
     {
+        $menu_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         return $this->render('recipe/show.html.twig', [
             'recipe' => $recipe,
+            'menu_categories'=> $this->menu_categories
         ]);
     }
 

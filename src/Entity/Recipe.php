@@ -54,21 +54,18 @@ class Recipe
      */
     private $category;
 
+    function __construct()
+    {
+        $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->setCreatedAt($now);
+        $this->setUpdatedAt($now);
+    }
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="recipe", orphanRemoval=true)
      */
     private $comments;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Connexion", inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $connexion;
-
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -190,15 +187,4 @@ class Recipe
         return $this;
     }
 
-    public function getConnexion(): ?Connexion
-    {
-        return $this->connexion;
-    }
-
-    public function setConnexion(?Connexion $connexion): self
-    {
-        $this->connexion = $connexion;
-
-        return $this;
-    }
 }

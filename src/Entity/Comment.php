@@ -43,11 +43,6 @@ class Comment
      */
     private $advice;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Connexion", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $connexion;
 
     public function getId(): ?int
     {
@@ -114,15 +109,4 @@ class Comment
         return $this;
     }
 
-    public function getConnexion(): ?Connexion
-    {
-        return $this->connexion;
-    }
-
-    public function setConnexion(?Connexion $connexion): self
-    {
-        $this->connexion = $connexion;
-
-        return $this;
-    }
 }
