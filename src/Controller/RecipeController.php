@@ -123,7 +123,7 @@ class RecipeController extends AbstractController
         public function RecipeByCategory($id, CategoryRepository $repo){
             $category = $repo->find($id);
             $recipes = $category->getRecipes();
-            return $this->render('main/index.html.twig', [
+            return $this->render('navigation.html.twig', [
                 'recipes'=> $recipes,
                 'menu_categories'=>$this->menu_categories 
             ]);

@@ -6,15 +6,17 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/recettes" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recettes</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Recettes
+        </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Toute</a>
           {% for cat in menu_categories %}
           <a class="dropdown-item" href="{{path('recette_category',{'id': cat.id})}}">{{ cat.name }}</a>
           {% endfor %}
         </div>
-      </li>
+      </div>
       <li class="nav-item">
         <a class="nav-link" href="/fiches_pratiques">Fiches pratiques</a>
       </li>
