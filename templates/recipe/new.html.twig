@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Recipe{% endblock %}
+
+{% block body %}
+    <h1 class=" text-center m-5">Nouvelle recette</h1>
+
+    {{ include('recipe/_form.html.twig') }}
+
+    <a type="button" class="btn btn-primary" href="{{ path('recipe_index') }}">Retourner aux recettes</a>
+{% endblock %}
