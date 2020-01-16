@@ -22,9 +22,10 @@
         Recettes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Toute</a>
+          <a class="dropdown-item" href="/recettes">Toute</a>
           {% for cat in menu_categories %}
-          <a class="dropdown-item" href="{{path('recette_category',{'id': cat.id})}}">{{ cat.name }}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{path('recettes_category',{'id': cat.id})}}">{{ cat.name }}</a>
           {% endfor %}
         </div>
       </div>

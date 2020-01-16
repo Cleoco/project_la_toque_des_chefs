@@ -117,5 +117,17 @@ class RecipeController extends AbstractController
         return $this->redirectToRoute('recipe_index');
     }
 
+    /**
+     * @Route("/recettes/{id}", name="recettes_category")
+     */
+    public function recipeByCategory($id, CategoryRepository $repo){
+        $category = $repo->find($id);
+        $recipes = $category->getRecipes();
+        return $this->render('recipe/index.html.twig', [
+            'recipes'=> $recipes,
+            'menu_categories'=>$this->menu_categories 
+        ]);
+    }
+
 
 }
