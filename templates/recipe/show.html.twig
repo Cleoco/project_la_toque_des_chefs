@@ -4,31 +4,20 @@
 
 {% block body %}
     <h1 class="text-center mt-5 mb-5">{{ recipe.title }}</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ recipe.updatedAt ? recipe.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ recipe.note }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ recipe.content }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img class="col-12" src="{{ recipe.image }}" alt="" srcset=""></td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row">
+            <div class="note">
+                {{ recipe.note }}
+            </div>    
+            <div class="recipe_info">
+                {{ recipe.content }}
+            </div>
+            
+            <div class="recipe_img col-6 p-0 m-0">
+                    <img class="col p-0" src="{{ recipe.image }}" alt="" srcset="">
+            </div>
+        
+        </div>
+         
 
     {{ include('recipe/_delete_form.html.twig') }} 
     

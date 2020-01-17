@@ -31,6 +31,9 @@
         flex-direction:column;
         justify-content:center;
     }
+    .parution{
+        color:#B4B4B4;
+    }
 
 </style>
 
@@ -43,8 +46,9 @@
                         <div class="article_img col-5 p-0">
                             <img class="col  p-0" src="{{ advice.image }}" alt="" srcset=""></td>
                         </div>
-                        <div class="article_content col-7">
+                        <div class="article_content ml-3 col-7">
                             <h2>{{ advice.title }}</h2>
+                            <p class="parution"> mis en ligne le : {{ advice.createdAt | date('d-m-Y') }} </p>
                             <p>
                                 {{ advice.content | slice(0, 600) }} <a href="{{ path('advice_show', {'id': advice.id})}}">...lire la suite</a>
                             </p>

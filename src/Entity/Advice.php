@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Advice
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,12 +35,19 @@ class Advice
     private $image;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="advice", orphanRemoval=true)
      */
     private $comments;
 
     public function __construct()
     {
+        $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->setCreatedAt($now);
         $this->comments = new ArrayCollection();
     }
 
@@ -80,6 +88,18 @@ class Advice
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
