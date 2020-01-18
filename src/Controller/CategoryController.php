@@ -12,11 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     
+    
     public function load(): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         // liste pour mon sélecteur de catégories
-        $categories = ['Tartes','Cake','Entremets','Petits gâteaux','Recettes traditionnelles','Chocolats & Confiseries','Boulangerie','À l\'assiette','Pâtisserie du monde'];
+        $categories = ['Tartes','Cake','Entremets','Petits gâteaux','Crèmes','À tartiner','Recettes traditionnelles','Chocolats & Confiseries','Boulangerie','À l\'assiette','Pâtisserie du monde'];
         // tableau pour enregistrer chaque objet de type Category
         $tabObjetsCategory = []; 
         // Boucle pour créer autant d'objets que de catégories dans la liste

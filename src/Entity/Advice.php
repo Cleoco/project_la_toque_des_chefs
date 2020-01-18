@@ -44,6 +44,11 @@ class Advice
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=2000, nullable=true)
+     */
+    private $imgTop;
+
     public function __construct()
     {
         $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
@@ -131,6 +136,18 @@ class Advice
                 $comment->setAdvice(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImgTop(): ?string
+    {
+        return $this->imgTop;
+    }
+
+    public function setImgTop(?string $imgTop): self
+    {
+        $this->imgTop = $imgTop;
 
         return $this;
     }

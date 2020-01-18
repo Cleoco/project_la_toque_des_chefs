@@ -7,6 +7,7 @@
 <style>
     h1{
         letter-spacing: 8px;
+        text-transform: uppercase;
     }
 
     .filet{
@@ -40,8 +41,27 @@
         height:auto;
 
     }
+    .create_your_recipe{
+        width:100%;
+        height: 350px;
+        padding-right:80px;
+        background-image: url('{{ asset('img/654621-PP2GN9-768.jpg') }}');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .create_your_recipe h2{
+        letter-spacing: 4px;
+    }
+    .create_your_recipe .filet_h2{
+        width:80px;
+        height:15px;
+        background:#18BC9C;
+        margin-top:25px;
+    }
 
-
+    {# .create_your_recipe h2{
+        color: white;
+    } #}
 </style>
 
     <h1 class="text-center mt-5">RECETTES</h1>
@@ -69,7 +89,7 @@
                             </div>
                         {% else %}
                             <tr>
-                                <td colspan="8">no records found</td>
+                                <td colspan="8">Aucune recette enregistrée</td>
                             </tr>
                         {% endfor %}
                     </div>
@@ -77,6 +97,12 @@
             </tbody>
         </table>
 
+        <div class="create_your_recipe d-flex align-items-end flex-column mt-5 justify-content-center ">
+        <h2 class="text-uppercase  "> Balance ta recette !</h2>
+        <div class="filet_h2 "></div>
         <a type="button" class="btn btn-primary mt-5" href="{{ path('recipe_new') }}">Créer votre recette</a>
+        
+        </div>
+
     
 {% endblock %}

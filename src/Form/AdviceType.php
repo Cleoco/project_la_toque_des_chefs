@@ -30,9 +30,23 @@ class AdviceType extends AbstractType
                     'placeholder'=> 'Ajoutez le détail ici…',
                 ]
             ])
-            ->add('image')
+            ->add('image', TextType::class, [
+                'label'=> 'Image de la recette',
+                'required'=> false,
+                'attr' => [
+                    'placeholder'=> 'Ajoutez une image à votre recette'
+                ]
+            ])
+            ->add('imgTop', TextType::class, [
+                'label'=> 'Image de couverture',
+                'required'=> false,
+                'attr' => [
+                    'placeholder'=> 'Ajoutez une image à la une !'
+                ]
+            ])
         ;
     }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {
