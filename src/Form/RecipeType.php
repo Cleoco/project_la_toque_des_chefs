@@ -43,7 +43,7 @@ class RecipeType extends AbstractType
                 ]
             ])
             ->add('note', TextType::class, [
-                'label'=> 'Note',
+                'label'=> 'Difficulté / 5',
                 'required'=> false,
                 'attr' => [
                     'placeholder'=> 'Notez la recette sur 5'

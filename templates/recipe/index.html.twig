@@ -39,7 +39,9 @@
     }
     .recipe_cards img{
         height:auto;
-
+    }
+    .recipes_content{
+        margin-bottom:75px;
     }
     .create_your_recipe{
         width:100%;
@@ -59,6 +61,16 @@
         margin-top:25px;
     }
 
+    .level{
+        padding:7px;
+        width:120px;
+        text-align:center;
+        background:#FFAA00;
+        font-weight:bold;
+        font-size:14px;
+        color:white;
+        border-radius: 5px;
+    }
     {# .create_your_recipe h2{
         color: white;
     } #}
@@ -70,12 +82,15 @@
                 <div class="recipe_cards">
                     <div class="row">
                         {% for recipe in recipes %}
-                            <div class="col-4 mb-4">
+                            <div class="col-4 recipes_content">
                                 <tr>
                                     {# <td>{{ recipe.id }}</td> #}
-                                    <td> <h2>{{ recipe.title }}</h2></td>
-                                    <td>{{ recipe.note }} / 5</td>
+                                    <td> 
+                                        <div class="level mb-3">Difficulté :
+                                        {{ recipe.note }} / 5 </div> </td>
+                                  
                                     <td>
+                                    <td> <h2>{{ recipe.title }}</h2></td>
                                         <div class="recipe_content_photo">
                                             <img class="col-12 mt-3 mb-3 p-0" src="{{ recipe.image }}" alt="" srcset=""></td>
                                         </div>
@@ -97,7 +112,7 @@
             </tbody>
         </table>
 
-        <div class="create_your_recipe d-flex align-items-end flex-column mt-5 justify-content-center ">
+        <div class="create_your_recipe mb-5 d-flex align-items-end flex-column mt-5 justify-content-center ">
         <h2 class="text-uppercase  "> Balance ta recette !</h2>
         <div class="filet_h2 "></div>
         <a type="button" class="btn btn-primary mt-5" href="{{ path('recipe_new') }}">Créer votre recette</a>
