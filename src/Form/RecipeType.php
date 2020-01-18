@@ -23,20 +23,46 @@ class RecipeType extends AbstractType
             ])
             ->add('title', TextType::class, [
                 'label' => 'Titre de la recette',
-                'required'=> false,
+                'required'=> true,
                 'attr' => [
                     'placeholder'=> 'Entrez-le ici !'
                 ]
             ])
+            ->add('ingredient', TextareaType::class, [
+                'label'=> 'Ingrédients',
+                'required'=> true,
+                'attr' => [
+                    'placeholder'=> 'Ajoutez les ingrédients ici…',
+                ]
+            ])
             ->add('content', TextareaType::class, [
                 'label'=> 'Description',
-                'required'=> false,
+                'required'=> true,
                 'attr' => [
                     'placeholder'=> 'Ajoutez le détail ici…',
                 ]
             ])
-            ->add('note')
-            ->add('image')
+            ->add('note', TextType::class, [
+                'label'=> 'Note',
+                'required'=> false,
+                'attr' => [
+                    'placeholder'=> 'Notez la recette sur 5'
+                ]
+            ])
+            ->add('image', TextType::class, [
+                'label'=> 'Image de la recette',
+                'required'=> false,
+                'attr' => [
+                    'placeholder'=> 'Ajoutez une image à votre recette'
+                ]
+            ])
+            ->add('imgTop', TextType::class, [
+                'label'=> 'Image de couverture',
+                'required'=> false,
+                'attr' => [
+                    'placeholder'=> 'Ajoutez une image à la une !'
+                ]
+            ])
         ;
     }
 

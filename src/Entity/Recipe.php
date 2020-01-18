@@ -66,6 +66,16 @@ class Recipe
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $ingredient;
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $imgTop;
+
 
     public function getId(): ?int
     {
@@ -183,6 +193,30 @@ class Recipe
                 $comment->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIngredient(): ?string
+    {
+        return $this->ingredient;
+    }
+
+    public function setIngredient(string $ingredient): self
+    {
+        $this->ingredient = $ingredient;
+
+        return $this;
+    }
+
+    public function getImgTop(): ?string
+    {
+        return $this->imgTop;
+    }
+
+    public function setImgTop(?string $imgTop): self
+    {
+        $this->imgTop = $imgTop;
 
         return $this;
     }

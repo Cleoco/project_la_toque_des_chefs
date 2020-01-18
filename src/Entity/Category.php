@@ -28,6 +28,11 @@ class Category
      */
     private $recipes;
 
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $img;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
@@ -77,6 +82,18 @@ class Category
                 $recipe->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(?string $img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
