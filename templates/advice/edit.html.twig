@@ -20,13 +20,14 @@
         position:absolute;
     }
 </style>
+    <div class="container">
+        <h1 class=" text-center m-5">Modifier une fiche</h1>
+        <div class="filet "></div>
+        
 
-    <h1 class=" text-center m-5">Modifier une fiche</h1>
-     <div class="filet "></div>
-    
-
-    {{ include('advice/_form.html.twig', {'button_label': 'Mettre à jour'},{'class':'btn btn-secondary'}) }}
-    {{ include('advice/_delete_form.html.twig') }}
+        {{ include('advice/_form.html.twig', {'button_label': 'Mettre à jour'},{'class':'btn btn-secondary'}) }}
+        {{ include('advice/_delete_form.html.twig') }}
+    </div>
     
 
 {% endblock %}
