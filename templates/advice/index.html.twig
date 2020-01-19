@@ -54,7 +54,7 @@
         background:#18BC9C;
 
     }
-    .dropdown .btn , .dropdown-menu{
+    .article_menu{
         width:100%;
         margin-bottom:30px;
     }
@@ -70,11 +70,11 @@
     <h1 class="text-center mt-5">FICHES PRATIQUES</h1>
     <div class="filet "></div>
     <div class="container">
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown article_menu">
+            <button class="btn btn-primary dropdown-toggle article_menu" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Catégories
             </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu article_menu" aria-labelledby="navbarDropdownMenuLink">
             {% for cat in menu_categories %}
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{path('recettes_category',{'id': cat.id})}}">{{ cat.name }}</a>

@@ -21,12 +21,6 @@ class MainController extends AbstractController
         
     }
     
-    public function navCat(){
-        $menu_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        return $this->render('navigation.html.twig', [
-            'menu_categories'=>$menu_categories 
-        ]);
-    }
-    
+  
   
 }
