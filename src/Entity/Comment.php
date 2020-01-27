@@ -43,6 +43,11 @@ class Comment
      */
     private $advice;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
 
     public function getId(): ?int
     {
@@ -105,6 +110,18 @@ class Comment
     public function setAdvice(?Advice $advice): self
     {
         $this->advice = $advice;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
