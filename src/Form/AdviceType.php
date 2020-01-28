@@ -16,6 +16,11 @@ class AdviceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('mycategory', EntityType::class, [
+                'class'=> Category::class,
+                'choice_label'=> 'name',
+                'label'=> "Quelle catégorie ?"
+            ])
             ->add('title', TextType::class, [
                 'label' => 'Titre de la fiche',
                 'required'=> false,

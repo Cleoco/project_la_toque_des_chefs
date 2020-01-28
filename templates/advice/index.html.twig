@@ -75,10 +75,10 @@
                     Catégories
                 </button>
                 <div class="dropdown-menu article_menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/recettes">Toutes</a>
+                <a class="dropdown-item" href="/fiches_pratiques">Toutes</a>
                 {% for cat in menu_categories %}
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{path('recettes_category',{'id': cat.id})}}">{{ cat.name }}</a>
+                    <a class="dropdown-item" href="{{path('advice_category',{'id': cat.id})}}">{{ cat.name }}</a>
                 {% endfor %}
                 </div>
             </div>

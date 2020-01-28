@@ -49,6 +49,12 @@ class Advice
      */
     private $imgTop;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="advices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mycategory;
+
     public function __construct()
     {
         $now = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
@@ -148,6 +154,18 @@ class Advice
     public function setImgTop(?string $imgTop): self
     {
         $this->imgTop = $imgTop;
+
+        return $this;
+    }
+
+    public function getMycategory(): ?Category
+    {
+        return $this->mycategory;
+    }
+
+    public function setMycategory(?Category $mycategory): self
+    {
+        $this->mycategory = $mycategory;
 
         return $this;
     }

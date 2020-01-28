@@ -108,5 +108,16 @@ class AdviceController extends AbstractController
         return $this->redirectToRoute('advice_index');
     }
 
+    /**
+     * @Route("/fiches_pratiques/by/{id}", name="advice_category")
+     */
+    public function adviceByCategory($id, CategoryRepository $repo){
+        $category = $repo->find($id);
+        $advices = $category->getAdvices();
+        return $this->render('advice/index.html.twig', [
+            'advices'=> $advices,
+            'menu_categories'=>$this->menu_categories 
+        ]);
+    }
 
 }

@@ -33,9 +33,15 @@ class Category
      */
     private $img;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Advice", mappedBy="mycategory")
+     */
+    private $advices;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
+        $this->advices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -94,6 +100,37 @@ class Category
     public function setImg(?string $img): self
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Advice[]
+     */
+    public function getAdvices(): Collection
+    {
+        return $this->advices;
+    }
+
+    public function addAdvice(Advice $advice): self
+    {
+        if (!$this->advices->contains($advice)) {
+            $this->advices[] = $advice;
+            $advice->setMycategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdvice(Advice $advice): self
+    {
+        if ($this->advices->contains($advice)) {
+            $this->advices->removeElement($advice);
+            // set the owning side to null (unless already changed)
+            if ($advice->getMycategory() === $this) {
+                $advice->setMycategory(null);
+            }
+        }
 
         return $this;
     }
